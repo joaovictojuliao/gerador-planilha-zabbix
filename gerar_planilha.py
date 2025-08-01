@@ -126,7 +126,7 @@ def gerar_excel():
     )
 
     data_atual = datetime.now().strftime('%d-%m-%y_%H')
-    arquivo_saida = f"LoadDisk {data_atual}.xlsx"
+    arquivo_saida = f"tmp_planilhas/LoadDisk {data_atual}.xlsx"
     df.to_excel(arquivo_saida, index=False)
 
     wb = load_workbook(arquivo_saida)
