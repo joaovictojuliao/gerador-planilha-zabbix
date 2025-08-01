@@ -125,12 +125,8 @@ def gerar_excel():
         key=lambda x: x.map(ordem_tipo) if x.name == "Tipo" else x
     )
 
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    pasta_saida = os.path.join(base_dir, "tmp_planilhas")
-    os.makedirs(pasta_saida, exist_ok=True)  # Cria se não existir
-
     data_atual = datetime.now().strftime('%d-%m-%y_%H')
-    arquivo_saida = os.path.join(pasta_saida, f"LoadDisk {data_atual}.xlsx")
+    arquivo_saida = f"LoadDisk {data_atual}.xlsx"
     df.to_excel(arquivo_saida, index=False)
 
     wb = load_workbook(arquivo_saida)
